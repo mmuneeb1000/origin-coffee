@@ -1,0 +1,12 @@
+import api from "./axios";
+
+export const createOrder = (data) => api.post("/orders", data);
+
+export const getOrders = () => api.get("/admin/orders");
+
+export const getOrder = (id) => api.get(`/admin/orders/${id}`);
+
+export const updateStatus = (id, status) =>
+  api.patch(`/admin/orders/${id}/status`, {
+    status,
+  });
