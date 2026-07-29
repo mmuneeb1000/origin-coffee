@@ -1,17 +1,22 @@
 import express from "express";
 import {
-  getOrders,
-  getOrder,
-  updateOrderStatus,
-} from "../controllers/orderController.js";
+  getProducts,
+  getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/productController.js";
 import { authenticate } from "../middleware/auth.js";
 
 const router = express.Router();
 
 router.use(authenticate);
 
-router.get("/", getOrders);
-router.get("/:id", getOrder);
-router.patch("/:id/status", updateOrderStatus);
+router.get("/", getProducts);
+router.get("/:id", getProduct);
+
+router.post("/", createProduct);
+router.patch("/:id", updateProduct);
+router.delete("/:id", deleteProduct);
 
 export default router;

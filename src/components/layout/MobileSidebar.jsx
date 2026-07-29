@@ -12,27 +12,27 @@ const links = [
   {
     name: "Dashboard",
     icon: LayoutDashboard,
-    path: "/",
+    path: "/dashboard",
   },
   {
     name: "Products",
     icon: Coffee,
-    path: "/products",
+    path: "products",
   },
   {
     name: "Categories",
     icon: Grid2x2,
-    path: "/categories",
+    path: "categories",
   },
   {
     name: "Orders",
     icon: ShoppingBag,
-    path: "/orders",
+    path: "orders",
   },
   {
     name: "Settings",
     icon: Settings,
-    path: "/settings",
+    path: "settings",
   },
 ];
 
