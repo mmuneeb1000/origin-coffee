@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import DashboardLayout from "./components/layout/DashboardLayout";
+import CheckoutSuccess from "./pages/storefront/CheckoutSuccess";
 
 import Landing from "./pages/storefront/Landing";
 import Menu from "./pages/storefront/Menu";
@@ -24,13 +25,12 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/storecategories" element={<StoreCategories />} />
-
+        <Route path="/order-success" element={<CheckoutSuccess />} />;
         <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
@@ -46,7 +46,6 @@ export default function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="settings" element={<Settings />} />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

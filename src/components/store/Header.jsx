@@ -61,9 +61,11 @@ export default function Header() {
           </div>
 
           <div>
-            <h1 className="text-lg font-bold text-stone-900">Origin Coffee</h1>
+            <h1 className="text-xl uppercase font-bold text-stone-900">
+              Origin Coffee
+            </h1>
 
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+            <p className="text-xs uppercase text-right tracking-[0.3em] text-stone-500">
               Since 2026
             </p>
           </div>

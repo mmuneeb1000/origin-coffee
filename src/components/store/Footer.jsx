@@ -78,13 +78,13 @@ export default function Footer() {
               <div className="flex gap-3">
                 <MapPin className="mt-1 text-amber-500" size={18} />
 
-                <span>Rawalpindi, Pakistan</span>
+                <span>Indianapolis, Indiana</span>
               </div>
 
               <div className="flex gap-3">
                 <Phone className="mt-1 text-amber-500" size={18} />
 
-                <span>+92 XXX XXX XXXX</span>
+                <span>+1 XXX XXX XXXX</span>
               </div>
 
               <div className="flex gap-3">

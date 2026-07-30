@@ -101,7 +101,15 @@ export default function CheckoutForm() {
 
       clearCart();
 
-      navigate(`/order-success/${data.orderId}`);
+      navigate("/order-success", {
+        state: {
+          orderId: data.orderId,
+          customerName: form.customerName,
+          orderType: form.orderType,
+          subtotal,
+          itemCount,
+        },
+      });
     } catch (error) {
       alert(error.response?.data?.error || "Unable to place your order.");
     } finally {
