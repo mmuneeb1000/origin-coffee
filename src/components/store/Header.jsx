@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, ShoppingBag, Search, ChevronDown } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
+import { Menu, X, ShoppingBag, Search } from "lucide-react";
 import { useCart } from "../../hooks/useCart";
 import Logo from "/coffee.svg";
 
@@ -23,23 +23,23 @@ export default function Header() {
   const navLinks = [
     {
       name: "Home",
-      href: "#",
+      to: "/",
     },
     {
       name: "Menu",
-      href: "#menu",
+      to: "/menu",
     },
     {
       name: "Categories",
-      href: "#categories",
+      to: "/storecategories",
     },
     {
       name: "About",
-      href: "#about",
+      to: "/about",
     },
     {
       name: "Contact",
-      href: "#footer",
+      to: "/contact",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function Header() {
           className="flex items-center gap-3 transition hover:opacity-80"
         >
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-800 text-white shadow-lg">
-            <img src={Logo} />
+            <img src={Logo} alt="Origin Coffee" className="h-7 w-7" />
           </div>
 
           <div>
@@ -69,15 +69,23 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-2 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.name}
-              href={link.href}
-              className="font-medium text-stone-700 transition hover:text-amber-700"
+              to={link.to}
+              className={({ isActive }) =>
+                `rounded-xl px-4 py-2 font-semibold transition-all duration-200
+        focus:outline-none focus:ring-2 focus:ring-amber-700/30
+        ${
+          isActive
+            ? "bg-amber-100 text-amber-800"
+            : "text-stone-700 hover:bg-amber-50 hover:text-amber-700"
+        }`
+              }
             >
               {link.name}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -101,7 +109,7 @@ export default function Header() {
         </div>
 
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((prev) => !prev)}
           className="rounded-xl border border-stone-200 p-3 lg:hidden"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -112,14 +120,22 @@ export default function Header() {
         <div className="border-t border-stone-200 bg-white lg:hidden">
           <div className="space-y-2 px-6 py-5">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-xl px-4 py-3 font-medium text-stone-700 transition hover:bg-amber-50 hover:text-amber-700"
+                className={({ isActive }) =>
+                  `block rounded-xl px-4 py-3 font-medium transition-all duration-200
+        focus:outline-none focus:ring-2 focus:ring-amber-700/30
+        ${
+          isActive
+            ? "bg-amber-100 text-amber-800"
+            : "text-stone-700 hover:bg-amber-50 hover:text-amber-700"
+        }`
+                }
               >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
 
             <button

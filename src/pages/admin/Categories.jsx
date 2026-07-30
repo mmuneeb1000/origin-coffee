@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { Button, ConfirmDialog, Input, Loading } from "../components/common";
-import { CategoryGrid, CategoryModal } from "../components/categories";
-import useCategories from "../hooks/useCategories";
+import { Button, ConfirmDialog, Input, Loading } from "../../components/common";
+import { CategoryGrid, CategoryModal } from "../../components/categories";
+import useCategories from "../../hooks/useCategories";
 
 export default function Categories() {
   const {

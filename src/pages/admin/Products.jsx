@@ -5,10 +5,10 @@ import {
   Input,
   Loading,
   Select,
-} from "../components/common";
-import { ProductModal, ProductTable } from "../components/products";
-import useProducts from "../hooks/useProducts";
-import useCategories from "../hooks/useCategories";
+} from "../../components/common";
+import { ProductModal, ProductTable } from "../../components/products";
+import useProducts from "../../hooks/useProducts";
+import useCategories from "../../hooks/useCategories";
 
 export default function Products() {
   const { products, loading, error, addProduct, editProduct, removeProduct } =

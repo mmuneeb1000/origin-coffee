@@ -30,7 +30,7 @@ export default function FeaturedProducts({ products = [], onViewProduct }) {
 
         {products.length === 0 ? (
           <div className="rounded-3xl border border-dashed border-stone-300 bg-stone-50 py-20 text-center">
-            <Coffee size={48} className="mx-auto text-stone-300" />
+            <img className="h-6" src={Logo} />
 
             <h3 className="mt-6 text-xl font-semibold text-stone-700">
               No products available

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-import { getCategories } from "../api/categories";
-import { getProducts } from "../api/products";
+import { getCategories } from "../../api/categories";
+import { getProducts } from "../../api/products";
 
-import Header from "../components/store/Header";
-import Hero from "../components/store/Hero";
-import CategoriesSection from "../components/store/CategoriesSection";
-import FeaturedProducts from "../components/store/FeaturedProducts";
-import CTASection from "../components/store/CTASection";
-import Footer from "../components/store/Footer";
-import ProductModal from "../components/store/ProductModal";
-import CartDrawer from "../components/store/CartDrawer";
+import Header from "../../components/store/Header";
+import Hero from "../../components/store/Hero";
+import CategoriesSection from "../../components/store/CategoriesSection";
+import FeaturedProducts from "../../components/store/FeaturedProducts";
+import CTASection from "../../components/store/CTASection";
+import Footer from "../../components/store/Footer";
+import ProductModal from "../../components/store/ProductModal";
+import CartDrawer from "../../components/store/CartDrawer";
 
 export default function Landing() {
   const [categories, setCategories] = useState([]);

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { Button, Input, Loading } from "../components/common";
-import { OrderCard, OrderModal } from "../components/orders";
-import useOrders from "../hooks/useOrders";
+import { Button, Input, Loading } from "../../components/common";
+import { OrderCard, OrderModal } from "../../components/orders";
+import useOrders from "../../hooks/useOrders";
 
 const filters = [
   {

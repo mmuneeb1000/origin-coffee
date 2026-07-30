@@ -2,15 +2,20 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import DashboardLayout from "./components/layout/DashboardLayout";
 
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Categories from "./pages/Categories";
-import Products from "./pages/Products";
-import Orders from "./pages/Orders";
-import Settings from "./pages/Settings";
-import NotFound from "./pages/NotFound";
-import Landing from "./pages/Landing";
-import Checkout from "./pages/Checkout";
+import Landing from "./pages/storefront/Landing";
+import Menu from "./pages/storefront/Menu";
+import StoreCategories from "./pages/storefront/StoreCategories";
+import About from "./pages/storefront/About";
+import Contact from "./pages/storefront/Contact";
+import Checkout from "./pages/storefront/Checkout";
+
+import Login from "./pages/admin/Login";
+import Dashboard from "./pages/admin/Dashboard";
+import Categories from "./pages/admin/Categories";
+import Products from "./pages/admin/Products";
+import Orders from "./pages/admin/Orders";
+import Settings from "./pages/admin/Settings";
+import NotFound from "./pages/admin/NotFound";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -20,9 +25,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
 
-        <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/storecategories" element={<StoreCategories />} />
 
+        <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
           element={

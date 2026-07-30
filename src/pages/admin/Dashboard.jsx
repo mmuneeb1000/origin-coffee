@@ -6,7 +6,7 @@ import {
   FiPlus,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import useDashboard from "../hooks/useDashboard";
+import useDashboard from "../../hooks/useDashboard";
 
 export default function Dashboard() {
   const { stats, recentOrders, loading } = useDashboard();
