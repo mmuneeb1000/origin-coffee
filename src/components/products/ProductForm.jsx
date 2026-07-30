@@ -31,7 +31,17 @@ export default function ProductForm({
 
     if (!validate()) return;
 
-    await onSubmit(form);
+    const payload = {
+      name: form.name,
+      description: form.description,
+      price: Number(form.price),
+      category_id: form.category_id,
+      image: form.image,
+      featured: form.featured,
+      available: form.available,
+    };
+
+    await onSubmit(payload);
   };
 
   return (

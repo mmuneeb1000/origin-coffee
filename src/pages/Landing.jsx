@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
+
 import { getCategories } from "../api/categories";
 import { getProducts } from "../api/products";
-import { Link } from "react-router-dom";
+
+import Header from "../components/store/Header";
+import Hero from "../components/store/Hero";
+import CategoriesSection from "../components/store/CategoriesSection";
+import FeaturedProducts from "../components/store/FeaturedProducts";
+import CTASection from "../components/store/CTASection";
+import Footer from "../components/store/Footer";
+import ProductModal from "../components/store/ProductModal";
+import CartDrawer from "../components/store/CartDrawer";
 
 export default function Landing() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     async function fetchStoreData() {
@@ -25,71 +37,43 @@ export default function Landing() {
     fetchStoreData();
   }, []);
 
+  const featuredProducts = selectedCategory
+    ? products.filter((product) => product.category_id === selectedCategory.id)
+    : products.slice(0, 6);
+
   return (
     <div className="min-h-screen bg-stone-50">
-      <header className="border-b bg-white">
-        <div className="mx-auto flex max-w-7xl justify-between px-6 py-5">
-          <h1 className="text-2xl font-bold text-amber-900">Origin Coffee</h1>
+      <Header />
 
-          <Link
-            to="/login"
-            className="rounded-lg bg-amber-800 px-5 py-2 text-white"
-          >
-            Admin
-          </Link>
-        </div>
-      </header>
+      <main className="pt-20">
+        <Hero />
 
-      <section className="px-6 py-20 text-center">
-        <h2 className="text-5xl font-bold">Fresh coffee, crafted daily</h2>
+        <CategoriesSection
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategorySelect={(category) =>
+            setSelectedCategory(
+              selectedCategory?.id === category.id ? null : category,
+            )
+          }
+        />
 
-        <p className="mx-auto mt-5 max-w-xl text-stone-600">
-          Explore our menu of handcrafted coffee, drinks, and snacks.
-        </p>
-      </section>
+        <FeaturedProducts
+          products={featuredProducts}
+          onViewProduct={setSelectedProduct}
+        />
 
-      <section className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-6 text-3xl font-bold">Categories</h2>
+        <CTASection />
+      </main>
 
-        <div className="grid gap-5 md:grid-cols-4">
-          {categories.map((category) => (
-            <div key={category.id} className="rounded-xl bg-white p-5 shadow">
-              <h3 className="font-semibold">{category.name}</h3>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Footer />
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="mb-6 text-3xl font-bold">Our Menu</h2>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="overflow-hidden rounded-xl bg-white shadow"
-            >
-              {product.image && (
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-48 w-full object-cover"
-                />
-              )}
-
-              <div className="p-5">
-                <h3 className="text-xl font-semibold">{product.name}</h3>
-
-                <p className="mt-2 text-stone-600">{product.description}</p>
-
-                <p className="mt-4 font-bold text-amber-800">
-                  ${product.price}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ProductModal
+        product={selectedProduct}
+        open={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
+      <CartDrawer />
     </div>
   );
 }

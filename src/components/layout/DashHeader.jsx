@@ -2,7 +2,7 @@ import { Menu, Bell, Search, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-export default function Header({ onMenu }) {
+export default function DashHeader({ onMenu }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
 

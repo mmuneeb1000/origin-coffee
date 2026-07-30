@@ -10,6 +10,7 @@ import Orders from "./pages/Orders";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
+import Checkout from "./pages/Checkout";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/" element={<Landing />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         <Route
           path="/dashboard"

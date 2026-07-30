@@ -92,10 +92,28 @@ export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
+    const {
+      category_id,
+      name,
+      description,
+      image,
+      price,
+      featured,
+      available,
+    } = req.body;
+
     const { data, error } = await supabase
       .schema("origin")
       .from("products")
-      .update(req.body)
+      .update({
+        category_id,
+        name,
+        description,
+        image,
+        price,
+        featured,
+        available,
+      })
       .eq("id", id)
       .select()
       .single();
@@ -104,7 +122,11 @@ export const updateProduct = async (req, res) => {
 
     res.json(data);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("UPDATE PRODUCT ERROR:", err);
+
+    res.status(500).json({
+      error: err.message,
+    });
   }
 };
 

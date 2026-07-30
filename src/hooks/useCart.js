@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-export default function useCart() {
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || [],
-  );
+export function useCart() {
+  const context = useContext(CartContext);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  function addItem(product) {
-    setCart((prev) => [...prev, product]);
+  if (!context) {
+    throw new Error("useCart must be used inside a CartProvider.");
   }
 
-  function removeItem(id) {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  }
-
-  function clearCart() {
-    setCart([]);
-  }
-
-  return {
-    cart,
-    addItem,
-    removeItem,
-    clearCart,
-  };
+  return context;
 }

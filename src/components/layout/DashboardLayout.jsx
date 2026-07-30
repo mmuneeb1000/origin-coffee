@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import Header from "./Header";
+import DashHeader from "./DashHeader";
 import MobileSidebar from "./MobileSidebar";
 
 export default function DashboardLayout() {
@@ -14,7 +14,7 @@ export default function DashboardLayout() {
       <MobileSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="lg:ml-72">
-        <Header onMenu={() => setSidebarOpen(true)} />
+        <DashHeader onMenu={() => setSidebarOpen(true)} />
 
         <main className="p-5 md:p-8">
           <Outlet />

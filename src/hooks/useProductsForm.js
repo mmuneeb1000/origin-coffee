@@ -8,6 +8,7 @@ const initialState = {
   category_id: "",
   image: "",
   imageFile: "",
+  featured: false,
   available: true,
 };
 
@@ -31,6 +32,7 @@ export default function useProductForm(product = null) {
       category_id: product.category_id || "",
       image: product.image || "",
       imageFile: product.imageFile || "",
+      featured: product.featured || false,
       available: product.available === undefined ? true : product.available,
     });
   }, [product]);
