@@ -5,7 +5,7 @@ import {
   FiDollarSign,
   FiPlus,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import useDashboard from "../../hooks/useDashboard";
 
 export default function Dashboard() {

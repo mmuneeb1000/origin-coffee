@@ -1,5 +1,5 @@
 import { Menu, Bell, Search, LogOut } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
 
 export default function DashHeader({ onMenu }) {

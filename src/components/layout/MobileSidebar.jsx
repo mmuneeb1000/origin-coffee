@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import {
   LayoutDashboard,
   Coffee,

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { X, ShoppingBag, Trash2 } from "lucide-react";
 
 import { useCart } from "../../hooks/useCart";

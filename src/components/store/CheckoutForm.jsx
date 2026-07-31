@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { ShoppingBag, ArrowLeft } from "lucide-react";
 
 import { useCart } from "../../hooks/useCart";

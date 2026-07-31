@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router";
 import { CheckCircle2, Coffee, ArrowRight, Receipt } from "lucide-react";
 
 import Header from "../../components/store/Header";

@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Logo from "/coffee.svg";
 
 export default function Footer() {
